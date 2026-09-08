@@ -1,0 +1,65 @@
+---
+const photos = [
+  { src: '/assets/galeria-1.jpg', caption: 'Vista superior da cobertura inflável branca' },
+  { src: '/assets/galeria-2.jpg', caption: 'Vista lateral da estrutura junto às edificações' },
+  { src: '/assets/galeria-3.jpg', caption: 'Cobertura instalada em área industrial' },
+  { src: '/assets/galeria-4.jpg', caption: 'Vista interna com material armazenado sob a cobertura' },
+  { src: '/assets/galeria-5.jpg', caption: 'Interior da estrutura com equipamentos em operação' },
+  { src: '/assets/hero-galpao.jpg', caption: 'Vista externa do galpão inflável e seus acessos' },
+];
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  {photos.map(photo => (
+    <figure>
+      <a href={photo.src} data-gallery-photo data-caption={photo.caption} class="group relative block aspect-[4/3] overflow-hidden rounded-2xl shadow-md" aria-label={`Ampliar foto: ${photo.caption}`}>
+        <img src={photo.src} alt={photo.caption} loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+        <span class="absolute bottom-3 right-3 bg-navy text-white px-4 py-2 rounded-full text-sm font-semibold">Ampliar foto</span>
+      </a>
+      <figcaption class="mt-3 text-sm text-gray-600">{photo.caption}</figcaption>
+    </figure>
+  ))}
+</div>
+
+<dialog id="gallery-dialog" aria-labelledby="gallery-caption" class="gallery-dialog">
+  <form method="dialog" class="flex justify-end mb-3">
+    <button autofocus class="rounded-full bg-white text-navy px-5 py-3 font-bold">Fechar foto <span aria-hidden="true">×</span></button>
+  </form>
+  <img id="gallery-image" alt="" class="max-h-[70dvh] w-full object-contain" />
+  <p id="gallery-caption" class="mt-4 text-white text-center"></p>
+</dialog>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('#gallery-dialog');
+  const image = document.querySelector<HTMLImageElement>('#gallery-image');
+  const caption = document.querySelector<HTMLElement>('#gallery-caption');
+  let trigger: HTMLAnchorElement | null = null;
+  if (dialog && image && caption && typeof dialog.showModal === 'function') {
+    document.querySelectorAll<HTMLAnchorElement>('[data-gallery-photo]').forEach(link => {
+      link.addEventListener('click', event => {
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        trigger = link;
+        image.src = link.href;
+        image.alt = link.dataset.caption || '';
+        caption.textContent = image.alt;
+        dialog.showModal();
+        document.documentElement.classList.add('gallery-open');
+      });
+    });
+    dialog.addEventListener('close', () => {
+      document.documentElement.classList.remove('gallery-open');
+      trigger?.focus({ preventScroll: true });
+    });
+    dialog.addEventListener('keydown', event => {
+      if (event.key === 'Tab') {
+        event.preventDefault();
+        dialog.querySelector<HTMLButtonElement>('button')?.focus();
+      }
+    });
+    dialog.addEventListener('click', event => {
+      const bounds = dialog.getBoundingClientRect();
+      if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
+    });
+  }
+</script>

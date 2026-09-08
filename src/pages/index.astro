@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Gallery from '../components/Gallery.astro';
 
 const whatsappLink = "https://wa.me/5511941880355?text=Olá,%20quero%20solicitar%20um%20orçamento%20de%20galpão%20inflável.";
 ---
@@ -12,17 +13,17 @@ const whatsappLink = "https://wa.me/5511941880355?text=Olá,%20quero%20solicitar
 >
   <Header />
 
-  <main class="flex-grow">
+  <main id="conteudo" tabindex="-1" class="flex-grow">
     <!-- Hero Section -->
     <section id="inicio" class="relative min-h-[90vh] flex items-center justify-center bg-navy-dark overflow-hidden">
       <!-- Background Image with Overlay -->
       <div class="absolute inset-0 z-0">
-        <img src="/assets/hero-galpao.jpg" alt="Galpão Inflável" class="w-full h-full object-cover opacity-40" />
+        <img src="/assets/hero-galpao.jpg" alt="" class="w-full h-full object-cover opacity-40" />
         <div class="absolute inset-0 bg-gradient-to-r from-navy-dark via-navy/80 to-transparent"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-navy-dark via-transparent to-transparent"></div>
       </div>
 
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 grid lg:grid-cols-12 gap-12 items-center">
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-20 grid lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-7 text-white">
           <div class="inline-block px-4 py-2 rounded-full bg-gold/20 border border-gold/30 text-gold-light font-semibold text-sm mb-6 backdrop-blur-sm animate-fade-in-up">
             Montagem rápida • Atendimento imediato
@@ -37,8 +38,8 @@ const whatsappLink = "https://wa.me/5511941880355?text=Olá,%20quero%20solicitar
           </p>
           
           <div class="flex flex-wrap gap-4 mb-8">
-            <a href={whatsappLink} target="_blank" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-full text-white bg-gradient-to-r from-green to-green-600 hover:scale-105 shadow-lg shadow-green/30 transition-all duration-300">
-              Solicitar Orçamento Agora
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-full text-white bg-green-700 hover:bg-green-800 shadow-lg transition-all duration-300">
+              Orçamento no WhatsApp
             </a>
             <a href="#galeria" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-full text-white bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md transition-all duration-300">
               Ver Projetos Reais
@@ -70,8 +71,8 @@ const whatsappLink = "https://wa.me/5511941880355?text=Olá,%20quero%20solicitar
                 Excelente para expansão rápida
               </li>
             </ul>
-            <a href={whatsappLink} target="_blank" class="block w-full text-center px-6 py-4 rounded-full font-bold text-navy-dark bg-gradient-to-r from-gold to-gold-light hover:shadow-lg hover:shadow-gold/30 transition-all duration-300">
-              Receber Atendimento
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="block w-full text-center px-6 py-4 rounded-full font-bold text-navy-dark bg-gradient-to-r from-gold to-gold-light hover:shadow-lg hover:shadow-gold/30 transition-all duration-300">
+              Atendimento no WhatsApp
             </a>
           </div>
         </div>
@@ -136,27 +137,16 @@ const whatsappLink = "https://wa.me/5511941880355?text=Olá,%20quero%20solicitar
       </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="py-20 bg-gradient-to-br from-navy to-navy-dark text-white relative overflow-hidden">
-      <!-- Decorative elements -->
-      <div class="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-96 h-96 bg-gold rounded-full opacity-10 blur-3xl"></div>
-      <div class="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-96 h-96 bg-blue-500 rounded-full opacity-10 blur-3xl"></div>
-
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="glass-panel p-8 rounded-3xl text-center">
-            <div class="text-5xl font-extrabold text-gold-light mb-2">24h</div>
-            <div class="text-gray-300 font-medium">Agilidade no atendimento</div>
-          </div>
-          <div class="glass-panel p-8 rounded-3xl text-center">
-            <div class="text-5xl font-extrabold text-gold-light mb-2">Brasil</div>
-            <div class="text-gray-300 font-medium">Atendimento Nacional</div>
-          </div>
-          <div class="glass-panel p-8 rounded-3xl text-center">
-            <div class="text-5xl font-extrabold text-gold-light mb-2">100%</div>
-            <div class="text-gray-300 font-medium">Foco em Proteção e Velocidade</div>
-          </div>
-        </div>
+    <section class="py-16 bg-navy-dark text-white" aria-labelledby="orcamento-titulo">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 id="orcamento-titulo" class="text-3xl font-bold mb-4">O que informar para solicitar seu orçamento</h2>
+        <p class="text-gray-300 mb-8 max-w-3xl">Reúna os dados da sua operação para conversar com a equipe sobre a estrutura e a locação.</p>
+        <dl class="grid md:grid-cols-3 gap-8">
+          <div><dt class="text-xl font-bold text-gold-light mb-2">Local e aplicação</dt><dd class="text-gray-300">Informe a cidade e o que precisa cobrir: materiais, equipamentos ou uma área de trabalho.</dd></div>
+          <div><dt class="text-xl font-bold text-gold-light mb-2">Área e acesso</dt><dd class="text-gray-300">Envie as medidas aproximadas do espaço e, se possível, fotos do local e dos acessos.</dd></div>
+          <div><dt class="text-xl font-bold text-gold-light mb-2">Data e período</dt><dd class="text-gray-300">Indique quando precisa da cobertura e por quanto tempo pretende utilizá-la.</dd></div>
+        </dl>
+        <p class="text-gray-300 mt-8">Consulte a equipe para confirmar dimensões disponíveis, condições de instalação e prazos para seu local.</p>
       </div>
     </section>
 
@@ -209,47 +199,21 @@ const whatsappLink = "https://wa.me/5511941880355?text=Olá,%20quero%20solicitar
           <p class="text-lg text-gray-600">Veja algumas de nossas instalações reais pelo Brasil.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[1, 2, 3, 4, 5].map((num) => (
-            <div class="group relative aspect-[4/3] overflow-hidden rounded-3xl shadow-md">
-              <img 
-                src={`/assets/galeria-${num}.jpg`} 
-                alt={`Projeto Galpão Inflável ${num}`} 
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-navy/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span class="text-white font-bold tracking-wider uppercase text-sm border border-white/50 px-4 py-2 rounded-full backdrop-blur-sm">Ampliar Foto</span>
-              </div>
-            </div>
-          ))}
-          <!-- hero image as gallery item -->
-          <div class="group relative aspect-[4/3] overflow-hidden rounded-3xl shadow-md">
-            <img 
-              src="/assets/hero-galpao.jpg" 
-              alt="Projeto Galpão Inflável Destaque" 
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              loading="lazy"
-            />
-            <div class="absolute inset-0 bg-navy/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              <span class="text-white font-bold tracking-wider uppercase text-sm border border-white/50 px-4 py-2 rounded-full backdrop-blur-sm">Ampliar Foto</span>
-            </div>
-          </div>
-        </div>
+        <Gallery />
       </div>
     </section>
 
     <!-- CTA Section -->
     <section class="relative py-24 bg-navy-dark overflow-hidden">
       <div class="absolute inset-0">
-        <img src="/assets/hero-galpao.jpg" class="w-full h-full object-cover opacity-20" alt="Background" />
+        <img src="/assets/hero-galpao.jpg" class="w-full h-full object-cover opacity-20" alt="" />
         <div class="absolute inset-0 bg-gradient-to-t from-navy-dark to-transparent"></div>
       </div>
       <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
         <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6">Precisa cobrir sua obra ou estoque com rapidez?</h2>
         <p class="text-xl text-gray-300 mb-10">Entre em contato agora e receba atendimento comercial imediato.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href={whatsappLink} target="_blank" class="px-8 py-4 text-lg font-bold rounded-full text-white bg-green-500 hover:bg-green-600 shadow-lg shadow-green-500/30 transition-all hover:-translate-y-1">
+          <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="px-8 py-4 text-lg font-bold rounded-full text-white bg-green-700 hover:bg-green-800 shadow-lg shadow-green-500/30 transition-all hover:-translate-y-1">
             Solicitar Orçamento no WhatsApp
           </a>
           <a href="tel:+5511941880355" class="px-8 py-4 text-lg font-bold rounded-full text-navy-dark bg-gold hover:bg-gold-light shadow-lg shadow-gold/30 transition-all hover:-translate-y-1">
@@ -273,7 +237,8 @@ const whatsappLink = "https://wa.me/5511941880355?text=Olá,%20quero%20solicitar
               { q: "Para quais situações o galpão inflável é indicado?", a: "É indicado para armazenagem temporária, apoio a obras, logística, indústria, mineração, proteção de materiais e operações especiais." },
               { q: "O galpão inflável ajuda a proteger contra chuva e sol?", a: "Sim. Ele é pensado para oferecer cobertura temporária e ajudar na proteção de materiais e equipamentos contra as intempéries climáticas." },
               { q: "Vocês atendem somente São Paulo?", a: "Não. Atendemos São Paulo e diferentes regiões do Brasil, enviando a estrutura conforme a necessidade da operação." },
-              { q: "Como solicitar orçamento?", a: "O atendimento é feito diretamente pelos botões de WhatsApp e telefone aqui no site, de forma rápida e muito prática." },
+              { q: "Como solicitar orçamento?", a: "Entre em contato pelo WhatsApp ou telefone. Informe cidade, uso pretendido, medidas aproximadas da área, data desejada e período de locação. Fotos do local e dos acessos ajudam a explicar sua necessidade." },
+              { q: "Como confirmar as dimensões e as condições de instalação?", a: "Converse com a equipe sobre o espaço disponível e os acessos ao local. Confirme as dimensões da estrutura, as condições de instalação e os prazos antes de definir a locação." },
               { q: "Essa solução serve para operação temporária?", a: "Sim. O galpão inflável é excelente para demandas temporárias, emergenciais, expansão de área coberta e apoio logístico." }
             ].map(faq => (
               <details class="group bg-white rounded-2xl border border-gray-200 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
@@ -300,7 +265,7 @@ const whatsappLink = "https://wa.me/5511941880355?text=Olá,%20quero%20solicitar
   <Footer />
 
   <!-- Floating WhatsApp Button -->
-  <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 hover:scale-110 transition-all duration-300 flex items-center justify-center animate-bounce group" aria-label="Falar no WhatsApp">
+  <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-green-700 text-white p-4 rounded-full shadow-2xl hover:bg-green-800 hover:scale-110 transition-all duration-300 flex items-center justify-center group" aria-label="Falar no WhatsApp">
     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
     </svg>

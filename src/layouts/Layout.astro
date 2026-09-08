@@ -14,7 +14,7 @@ const { title, description } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
@@ -30,24 +30,24 @@ const { title, description } = Astro.props;
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/assets/og-galpao.jpg" />
+    <meta property="og:image" content="/assets/hero-galpao.jpg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="/assets/og-galpao.jpg" />
+    <meta property="twitter:image" content="/assets/hero-galpao.jpg" />
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "Galpão Inflável",
-        "url": "https://galpaoinflavel.com/",
+        "name": "Insuflair",
+        "url": "https://www.insuflair.com.br/",
         "telephone": "+55 11 94188-0355",
-        "email": "comercial@galpaoinflavel.com",
+        "email": "comercial@insuflair.com.br",
         "description": "Locação de galpão inflável com montagem rápida para obras, armazenagem temporária, logística, indústria, mineração e operações especiais.",
-        "image": "https://galpaoinflavel.com/assets/og-galpao.jpg",
+        "image": "https://www.insuflair.com.br/assets/hero-galpao.jpg",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "São Paulo",
@@ -59,6 +59,7 @@ const { title, description } = Astro.props;
     </script>
   </head>
   <body class="bg-gray-50 flex flex-col min-h-screen">
+    <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
     <slot />
   </body>
 </html>

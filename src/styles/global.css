@@ -4,8 +4,20 @@
 
 @layer base {
   html {
+    --header-height: 97px;
     scroll-behavior: smooth;
     font-family: 'Inter', system-ui, sans-serif;
+  }
+  section[id], main[id] { scroll-margin-top: calc(var(--header-height) + 16px); }
+  :focus-visible { outline: 3px solid #2563eb; outline-offset: 4px; }
+  .skip-link { position: fixed; top: 8px; left: 8px; z-index: 100; transform: translateY(-200%); background: white; color: #0c1630; padding: 12px 20px; }
+  .skip-link:focus { transform: translateY(0); }
+  .gallery-open { overflow: hidden; }
+  .gallery-dialog { width: min(100% - 2rem, 1100px); max-height: calc(100dvh - 2rem); padding: 20px; border-radius: 16px; background: #0c1630; color: white; }
+  .gallery-dialog::backdrop { background: rgb(0 0 0 / 85%); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
   }
   body {
     @apply bg-white text-gray-800 antialiased selection:bg-gold selection:text-navy-dark;

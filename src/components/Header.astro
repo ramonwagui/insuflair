@@ -4,10 +4,10 @@ const whatsappLink = "https://wa.me/5511941880355?text=Olá,%20quero%20solicitar
 
 <div class="bg-gradient-to-r from-gold to-gold-light text-navy-dark py-2 px-4 text-sm font-medium">
   <div class="max-w-7xl mx-auto flex flex-wrap justify-center md:justify-between items-center gap-4 text-center">
-    <div class="flex items-center gap-4">
-      <a href="tel:+5511941880355" class="hover:text-white transition-colors duration-300">📞 +55 11 94188-0355</a>
+    <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-1">
+      <a href="tel:+5511941880355" class="whitespace-nowrap hover:underline transition-colors duration-300">📞 +55 11 94188-0355</a>
       <span class="hidden md:inline">|</span>
-      <a href="mailto:comercial@insuflair.com.br" class="hover:text-white transition-colors duration-300">✉ comercial@insuflair.com.br</a>
+      <a href="mailto:comercial@insuflair.com.br" class="whitespace-nowrap hover:underline transition-colors duration-300">✉ comercial@insuflair.com.br</a>
     </div>
     <div class="hidden md:block">📍 São Paulo - SP - Brasil</div>
   </div>
@@ -15,13 +15,13 @@ const whatsappLink = "https://wa.me/5511941880355?text=Olá,%20quero%20solicitar
 
 <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200 transition-all duration-300" id="main-header">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between py-4">
-      <a href="#inicio" class="flex-shrink-0 group" aria-label="Galpão Inflável">
-        <img src="/logo.png" alt="Logo Insuflair" class="h-32 sm:h-48 w-auto drop-shadow-sm group-hover:scale-105 transition-transform duration-300" />
+    <div class="flex items-center justify-between py-2">
+      <a href="#inicio" class="flex-shrink-0 group flex items-center justify-center w-40 sm:w-48 h-16 sm:h-20 overflow-hidden" aria-label="Insuflair - início">
+        <img src="/logo.png" alt="Logo Insuflair" class="h-32 sm:h-40 w-auto max-w-none drop-shadow-sm group-hover:scale-105 transition-transform duration-300" />
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden lg:flex space-x-8">
+      <nav aria-label="Navegação principal" class="hidden lg:flex space-x-5">
         <a href="#inicio" class="text-navy-dark hover:text-gold transition-colors font-medium text-sm uppercase tracking-wide">Início</a>
         <a href="#urgencia" class="text-navy-dark hover:text-gold transition-colors font-medium text-sm uppercase tracking-wide">Urgência</a>
         <a href="#beneficios" class="text-navy-dark hover:text-gold transition-colors font-medium text-sm uppercase tracking-wide">Benefícios</a>
@@ -33,14 +33,14 @@ const whatsappLink = "https://wa.me/5511941880355?text=Olá,%20quero%20solicitar
       <!-- CTA Button -->
       <div class="hidden lg:block">
         <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-full shadow-lg text-sm font-bold text-navy-dark bg-gradient-to-r from-gold to-gold-light hover:scale-105 hover:shadow-gold/30 transition-all duration-300">
-          Solicitar Orçamento
+          Orçamento no WhatsApp
         </a>
       </div>
 
       <!-- Mobile menu button -->
       <div class="lg:hidden flex items-center">
-        <button id="mobile-menu-btn" class="text-navy-dark hover:text-gold focus:outline-none focus:text-gold p-2">
-          <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <button id="mobile-menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu" class="text-navy-dark p-2">
+          <svg aria-hidden="true" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
@@ -49,7 +49,7 @@ const whatsappLink = "https://wa.me/5511941880355?text=Olá,%20quero%20solicitar
   </div>
 
   <!-- Mobile Navigation -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-lg border-t border-gray-200">
+  <nav id="mobile-menu" aria-label="Navegação móvel" class="hidden lg:hidden absolute inset-x-0 top-full max-h-[calc(100dvh-6rem)] overflow-y-auto bg-white border-t border-gray-200 shadow-lg">
     <div class="px-4 pt-2 pb-6 space-y-1">
       <a href="#inicio" class="block px-3 py-3 rounded-md text-base font-medium text-navy-dark hover:text-gold hover:bg-gray-50 transition-colors">Início</a>
       <a href="#urgencia" class="block px-3 py-3 rounded-md text-base font-medium text-navy-dark hover:text-gold hover:bg-gray-50 transition-colors">Urgência</a>
@@ -57,25 +57,35 @@ const whatsappLink = "https://wa.me/5511941880355?text=Olá,%20quero%20solicitar
       <a href="#aplicacoes" class="block px-3 py-3 rounded-md text-base font-medium text-navy-dark hover:text-gold hover:bg-gray-50 transition-colors">Aplicações</a>
       <a href="#galeria" class="block px-3 py-3 rounded-md text-base font-medium text-navy-dark hover:text-gold hover:bg-gray-50 transition-colors">Galeria</a>
       <a href="#faq" class="block px-3 py-3 rounded-md text-base font-medium text-navy-dark hover:text-gold hover:bg-gray-50 transition-colors">Dúvidas</a>
-      <a href={whatsappLink} target="_blank" class="block w-full mt-4 text-center px-6 py-3 rounded-full shadow-lg text-base font-bold text-navy-dark bg-gradient-to-r from-gold to-gold-light">
-        Solicitar Orçamento
+      <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="block w-full mt-4 text-center px-6 py-3 rounded-full shadow-lg text-base font-bold text-navy-dark bg-gradient-to-r from-gold to-gold-light">
+        Orçamento no WhatsApp
       </a>
     </div>
-  </div>
+  </nav>
 </header>
 
 <script>
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
-  const links = menu?.querySelectorAll('a');
-
-  btn?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
+  const setOpen = (open: boolean) => {
+    menu?.classList.toggle('hidden', !open);
+    btn?.setAttribute('aria-expanded', String(open));
+    btn?.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  };
+  btn?.addEventListener('click', () => setOpen(btn.getAttribute('aria-expanded') !== 'true'));
+  menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && btn?.getAttribute('aria-expanded') === 'true') {
+      setOpen(false);
+      btn.focus();
+    }
   });
-
-  links?.forEach(link => {
-    link.addEventListener('click', () => {
-      menu?.classList.add('hidden');
-    });
+  document.addEventListener('click', event => {
+    if (event.target instanceof Node && !menu?.contains(event.target) && !btn?.contains(event.target)) setOpen(false);
   });
+  matchMedia('(min-width: 1024px)').addEventListener('change', () => setOpen(false));
+  const header = document.getElementById('main-header');
+  if (header) new ResizeObserver(() => {
+    document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+  }).observe(header);
 </script>
